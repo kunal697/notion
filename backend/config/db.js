@@ -6,12 +6,6 @@ console.log('PORT:', process.env.PORT);
 
 const mongoose = require('mongoose');
  const mongoURL = 'mongodb+srv://kunal:kunal697@cluster0.ntwmivg.mongodb.net';
-
-if (!mongoURL) {
-    console.error('MONGO_URL is not defined');
-    process.exit(1);
-}
-
 mongoose.connect(mongoURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
