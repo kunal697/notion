@@ -5,7 +5,7 @@ console.log('MONGO_URL:', process.env.MONGO_URL);
 console.log('PORT:', process.env.PORT); 
 
 const mongoose = require('mongoose');
-const mongoURL = process.env.MONGO_URL;
+const mongoURL = const mongoURL = 'mongodb+srv://kunal:kunal697@cluster0.ntwmivg.mongodb.net';
 
 if (!mongoURL) {
     console.error('MONGO_URL is not defined');
