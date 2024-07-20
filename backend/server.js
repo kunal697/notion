@@ -7,7 +7,7 @@ const  db = require('./config/db.js');
 const User = require('./controllers/UserController.js');
 const Notesroute = require('./routes/Notesroute.js');
 const  {jwtAuthMiddleware, generateToken}= require('./config/auth.js');
-const port = 3000;
+const port = 4000;
 const cors = require('cors');
 app.use(cors());
 
