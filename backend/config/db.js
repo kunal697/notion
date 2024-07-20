@@ -1,23 +1,34 @@
-const mongoose = require('mongoose');
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
-const mongoURL =  'mongodb://127.0.0.1:27017/notiondb'
-mongoose.connect(mongoURL,{
-    useNewUrlParser:true,
+console.log('MONGO_URL:', process.env.MONGO_URL);  
+console.log('PORT:', process.env.PORT); 
+
+const mongoose = require('mongoose');
+const mongoURL = process.env.MONGO_URL;
+
+if (!mongoURL) {
+    console.error('MONGO_URL is not defined');
+    process.exit(1);
+}
+
+mongoose.connect(mongoURL, {
+    useNewUrlParser: true,
     useUnifiedTopology: true
-})
+});
 
 const db = mongoose.connection;
 
-db.on('connected',( )=>{
+db.on('connected', () => {
     console.log("connected to mongodb..");
-})
+});
 
-db.on('error',(err)=>{
-    console.log("err :",err);
-})
+db.on('error', (err) => {
+    console.log("err :", err);
+});
 
-db.on('disconnected',( )=>{
+db.on('disconnected', () => {
     console.log("disconnected with mongodb..");
-})
+});
 
 module.exports = db;
